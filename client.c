@@ -12,16 +12,20 @@ void	signal_confirm(int sig)
 void	send_signal(int pid, char c)
 {
 	int	bit;
+	int	result;
 
 	bit = 7;
 	while (bit >= 0)
 	{
 		g_confirm = 0;
 		if ((c >> bit) & 1)
-			kill(pid, SIGUSR2);
+			result = kill(pid, SIGUSR2);
 		else
-			kill(pid, SIGUSR1);
-		usleep(100);
+			result = kill(pid, SIGUSR1);
+		if (result == -1)
+			ft_putstr_fd("error of kill() of client or invalid pid\n", 2);
+		while (g_confirm != 1)
+			pause();
 		bit--;
 	}
 }
@@ -51,4 +55,5 @@ int	main(int argc, char **argv)
 	signal(SIGUSR1, signal_confirm);
 	send_message(pid, argv[2]);
 	g_confirm = 0;
+	return (0);
 }

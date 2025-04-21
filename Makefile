@@ -2,7 +2,7 @@ LIBFT_DIR = libft
 BONUS_DIR = bonus
 LIBFT = $(LIBFT_DIR)/libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 SRV_SRC = server.c
 CLI_SRC = client.c
 SRV_SRC_BONUS = server_bonus.c
@@ -24,7 +24,7 @@ $(SRV_BIN): $(SRV_OBJ) $(LIBFT)
 $(CLI_BIN): $(CLI_OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(CLI_OBJ) $(LIBFT) -o $(CLI_BIN) 
 bonus:  $(SRV_BONUS_BIN) $(CLI_BONUS_BIN)
-$(SRV_BONUS_BIN): $(SRV_BONUS_OBJ)
+$(SRV_BONUS_BIN): $(SRV_BONUS_OBJ) $(LIBFT)
 	$(CC) $(CFLAGS) $(SRV_BONUS_OBJ) $(LIBFT) -o $(SRV_BONUS_BIN) 
 $(CLI_BONUS_BIN): $(CLI_BONUS_OBJ)
 	$(CC) $(CFLAGS) $(CLI_BONUS_OBJ) $(LIBFT) -o $(CLI_BONUS_BIN) 
