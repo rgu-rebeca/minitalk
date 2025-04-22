@@ -6,7 +6,7 @@
 /*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 20:22:45 by rgu               #+#    #+#             */
-/*   Updated: 2025/04/22 20:22:46 by rgu              ###   ########.fr       */
+/*   Updated: 2025/04/22 20:37:09 by rgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ void	sig_handler_aux(int *bit, char *character)
 		{
 			msg = add_char(msg, *character);
 			if (!msg)
+			{
+				ft_putstr_fd("malloc error\n", 2);
 				exit(1);
+			}
 		}
 		*bit = 0;
 		*character = 0;

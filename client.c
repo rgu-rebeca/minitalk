@@ -6,7 +6,7 @@
 /*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 20:22:21 by rgu               #+#    #+#             */
-/*   Updated: 2025/04/22 20:22:22 by rgu              ###   ########.fr       */
+/*   Updated: 2025/04/22 20:38:56 by rgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,16 @@ int	main(int argc, char **argv)
 	int	pid;
 
 	if (argc != 3)
+	{
+		ft_putstr_fd("The amount of argument is incorrect\n", 2);
 		return (1);
+	}
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0)
+	{
+		ft_putstr_fd("The server id is incorrect\n", 2);
 		return (1);
+	}
 	signal(SIGUSR1, signal_confirm);
 	send_message(pid, argv[2]);
 	while (g_confirm != 1)

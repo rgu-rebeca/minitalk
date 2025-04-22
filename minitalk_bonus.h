@@ -6,7 +6,7 @@
 /*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 20:22:29 by rgu               #+#    #+#             */
-/*   Updated: 2025/04/22 20:22:29 by rgu              ###   ########.fr       */
+/*   Updated: 2025/04/22 20:47:14 by rgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@
 
 void	sig_handler(int sig, siginfo_t *info, void *context);
 void	send_signal(int pid, char c);
-void	send_message(int pid, char *message);
+void	send_message(int pid, unsigned char *message);
 #endif
