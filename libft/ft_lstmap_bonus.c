@@ -1,23 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/07 16:41:47 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/07 16:41:48 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-
-t_list	*ft_auxiliar(void *new_content, t_list **result, void (*del)(void *))
-{
-	t_list	*new_node;
-
-	new_node = ft_lstnew(new_content);
-	if (!new_node)
-	{
-		del (new_content);
-		ft_lstclear(result, del);
-		return (NULL);
-	}
-	ft_lstadd_back(result, new_node);
-	return (new_node);
-}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*result;
+	t_list	*new_node;
 	void	*new_content;
 
 	result = NULL;
@@ -25,14 +23,15 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	while (lst)
 	{
-		new_content = f(lst -> content);
-		if (!new_content)
+		new_content = f(lst->content);
+		new_node = ft_lstnew(new_content);
+		if (!new_node)
 		{
+			del(new_content);
 			ft_lstclear(&result, del);
 			return (NULL);
 		}
-		if (!ft_auxiliar (new_content, &result, del))
-			return (NULL);
+		ft_lstadd_back(&result, new_node);
 		lst = lst -> next;
 	}
 	return (result);

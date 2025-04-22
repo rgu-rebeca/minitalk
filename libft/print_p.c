@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_p.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/09 15:22:03 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/09 15:22:04 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-static void	ft_put_hexa(unsigned long num)
+static void	ft_put_hexa(size_t num)
 {
 	char	c;
 
@@ -18,15 +30,15 @@ int	print_p(void *ptr)
 	size_t	aux;
 	int		count;
 
-	if (!ptr || (void *)ptr == 0)
+	if (!ptr)
 	{
 		write(1, "(nil)", 5);
 		return (5);
 	}
 	write (1, "0x", 2);
-	count = 3;
+	count = 2;
 	aux = (size_t) ptr;
-	while (aux / 16 > 0)
+	while (aux > 0)
 	{
 		count++;
 		aux = aux / 16;

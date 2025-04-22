@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/22 20:22:10 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/22 20:22:13 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk_bonus.h"
 #include "libft/libft.h"
 
@@ -23,7 +35,10 @@ void	send_signal(int pid, char c)
 		else
 			result = kill(pid, SIGUSR1);
 		if (result == -1)
+		{
 			ft_putstr_fd("error of kill() of client or invalid pid", 2);
+			exit (1);
+		}
 		while (g_confirm != 1)
 			pause();
 		bit--;
@@ -54,5 +69,7 @@ int	main(int argc, char **argv)
 		return (1);
 	signal(SIGUSR1, signal_confirm);
 	send_message(pid, argv[2]);
+	while (g_confirm != 1)
+		pause();
 	return (0);
 }

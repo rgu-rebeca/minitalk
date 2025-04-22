@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/07 16:42:56 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/07 16:42:57 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
@@ -23,8 +35,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 /*int	main(void)
 {
 	const char	src[30] = "lorem ipsum dolor sit amet";
-	char	dest[0] = "";
-	int	dstsize = 0;
+	char	dest[10] = "ab";
+	int	dstsize = 10;
 	int	expsize = ft_strlcat(dest, src, dstsize);
 	printf("the expected size is: %d", expsize);
 	printf("the new dest is: %s", dest);

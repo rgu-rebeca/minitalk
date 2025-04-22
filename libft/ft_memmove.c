@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ruijia <ruijia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 17:41:23 by ruijia            #+#    #+#             */
-/*   Updated: 2025/03/12 21:52:44 by ruijia           ###   ########.fr       */
+/*   Created: 2025/04/07 16:42:10 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/07 16:42:11 by rgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,9 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
     char buffer[20] = "Hola, mundo!"; 
     printf("Antes: %s\n", buffer);
     
-    ft_memmove(buffer, buffer + 2, 6);
-    printf("Después: %s\n", buffer);
+    char *result = ft_memmove(buffer + 2, buffer, 6);
+	buffer[8] = '\0';
+    printf("Después: %s\n", result);
     
     return 0;
 }*/

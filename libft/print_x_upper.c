@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_x_upper.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/09 15:22:22 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/09 15:22:23 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static void	ft_put_hexa(unsigned int num)
@@ -18,9 +30,11 @@ int	print_x_upper(unsigned int num)
 	int				count;
 	unsigned int	aux;
 
-	count = 1;
+	count = 0;
+	if (num == 0)
+		count = 1;
 	aux = num;
-	while (aux / 16 > 0)
+	while (aux > 0)
 	{
 		count++;
 		aux = aux / 16;

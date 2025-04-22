@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/22 20:22:40 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/22 20:22:41 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk_bonus.h"
 #include "libft/libft.h"
 
@@ -64,7 +76,10 @@ void	sig_handler(int sig, siginfo_t *info, void *context)
 	sig_handler_aux(&bit, &character);
 	result = kill(info->si_pid, SIGUSR1);
 	if (result == -1)
+	{
 		ft_putstr_fd("error of kill() of the server or invalid pid\n", 2);
+		exit (1);
+	}
 }
 
 int	main(void)

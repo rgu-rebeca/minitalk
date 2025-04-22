@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minitalk_bonus.h                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/22 20:22:29 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/22 20:22:29 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINITALK_BONUS_H
 # define MINITALK_BONUS_H
 
 # define _POSIX_C_SOURCE 200809L
+# define _GNU_SOURCE
 
 # include <signal.h>
 # include <stdio.h>

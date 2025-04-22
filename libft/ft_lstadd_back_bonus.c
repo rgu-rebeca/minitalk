@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/07 16:41:20 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/07 16:41:24 by rgu              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
@@ -16,8 +28,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		aux = aux-> next;
 	aux -> next = new;
 }
-/*
-void print_list(t_list *head)
+
+/*void print_list(t_list *head)
 {
     while (head)
     {
@@ -27,7 +39,7 @@ void print_list(t_list *head)
     printf("NULL\n");
 }
 
-int main()
+int main(void)
 {
     t_list *head = NULL;
 	int a = 1;
@@ -41,7 +53,7 @@ int main()
     ft_lstadd_back(&head, ft_lstnew(&c));
 	print_list(head);
 	ft_lstadd_back(&head, ft_lstnew(&d));
-    printf("Lista después de agregar nodos:\n");
+    printf("List after adding all the nodes:\n");
     print_list(head);
 
     return 0;

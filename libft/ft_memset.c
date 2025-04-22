@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 17:58:52 by ruijia            #+#    #+#             */
-/*   Updated: 2025/02/26 22:35:06 by rgu              ###   ########.fr       */
+/*   Created: 2025/04/07 16:42:14 by rgu               #+#    #+#             */
+/*   Updated: 2025/04/07 16:42:15 by rgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,10 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
+
+/*int	main(void)
+{
+	char str[5] = "nawe";
+	char *s = ft_memset(&str, 'b', 3);
+	printf("%s\n", s);
+}*/
