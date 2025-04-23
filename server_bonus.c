@@ -6,12 +6,14 @@
 /*   By: rgu <rgu@student.42madrid.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 20:22:40 by rgu               #+#    #+#             */
-/*   Updated: 2025/04/22 20:37:15 by rgu              ###   ########.fr       */
+/*   Updated: 2025/04/23 11:18:57 by rgu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
 #include "libft/libft.h"
+
+static char	*msg = NULL;
 
 unsigned char	*add_char(unsigned char *str, unsigned char c)
 {
@@ -39,8 +41,6 @@ unsigned char	*add_char(unsigned char *str, unsigned char c)
 
 void	sig_handler_aux(int *bit, unsigned char *character)
 {
-	static unsigned char	*msg;
-
 	if (*bit == 8)
 	{
 		if (*character == '\0')
@@ -81,6 +81,8 @@ void	sig_handler(int sig, siginfo_t *info, void *context)
 	if (result == -1)
 	{
 		ft_putstr_fd("error of kill() of the server or invalid pid\n", 2);
+		if (msg)
+        	free(msg);
 		exit (1);
 	}
 }
